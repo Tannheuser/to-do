@@ -33,7 +33,7 @@ export default function TasksListItem(props: TaskListItemProps) {
 
   return (
     <>
-      <div className="flex flex-col p-2">
+      <div className="flex flex-col p-2" style={task.id > 1 ? {animation: 'outAnimation 510ms ease-in'} : {}}>
         <div className="flex flex-row items-center justify-between pb-2">
           <Checkbox checked={task.completed}
                     label={task.title}
