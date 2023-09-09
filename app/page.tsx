@@ -1,5 +1,10 @@
+import { Tasks } from '@/components/tasks';
+
 export default function Home() {
   return (
-      <div>TODO app</div>
-  )
+      <Tasks />
+  );
 }
+
+export const revalidate = 0;
+

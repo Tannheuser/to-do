@@ -1,3 +1,6 @@
 {
+  "rules": {
+    "quotes": [2, "single", "avoid-escape"]
+  },
   "extends": ["next/core-web-vitals", "prettier"]
 }
