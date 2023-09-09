@@ -1,3 +1,5 @@
+'use client'
+
 import DeleteOutlined from '@mui/icons-material/DeleteOutlined';
 import Flag from '@mui/icons-material/Flag';
 import FlagOutlined from '@mui/icons-material/FlagOutlined';

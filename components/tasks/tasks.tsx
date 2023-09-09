@@ -1,5 +1,3 @@
-'use client';
-
 import { TasksList } from './task-list';
 
 export function Tasks() {
