@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   description: 'Simple to-do app',
 };
 
-// AppDataSource.initialize();
-
 export default async function RootLayout({
   children,
 }: {
