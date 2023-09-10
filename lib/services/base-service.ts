@@ -1,4 +1,4 @@
-import { Repository } from 'typeorm';
+import { FindOptionsWhere, Repository } from 'typeorm';
 import { BaseModel } from '@/lib/models';
 
 export class BaseService<T extends BaseModel> {
@@ -9,7 +9,7 @@ export class BaseService<T extends BaseModel> {
   };
 
   async getItemById(id: string): Promise<T | null> {
-    return await this.repository.findOneBy({ id });
+    return await this.repository.findOneBy({ id } as FindOptionsWhere<T>);
   }
 
   async addItem(item: T): Promise<T> {

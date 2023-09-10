@@ -33,16 +33,16 @@ export default function TasksListItem(props: TaskListItemProps) {
 
   return (
     <>
-      <div className="flex flex-col p-2" style={task.id > 1 ? {animation: 'outAnimation 510ms ease-in'} : {}}>
+      <div className="flex flex-col p-2">
         <div className="flex flex-row items-center justify-between pb-2">
           <Checkbox checked={task.completed}
                     label={task.title}
                     onClick={completeTask}
                     style={{ textDecoration: task.completed ? 'line-through' : 'none'}} />
           <div className="flex flex-row items-center">
-            {
-              showDueDate && <span className="text-sm">{task.dueDate}</span>
-            }
+            {/*{*/}
+            {/*  showDueDate && <span className="text-sm">{task.dueDate}</span>*/}
+            {/*}*/}
             <ButtonGroup>
               <IconButton size="sm" onClick={editTask}>
                 <EditOutlined style={buttonParams} />
