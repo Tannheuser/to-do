@@ -1,4 +1,5 @@
 import { FindOptionsWhere, Repository } from 'typeorm';
+
 import { BaseModel } from '@/lib/models';
 
 export class BaseService<T extends BaseModel> {
