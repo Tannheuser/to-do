@@ -1,8 +1,12 @@
+import { Column, Entity } from 'typeorm';
+
 import { BaseModel } from '@/lib/models/base-model';
 
-export interface Task extends BaseModel {
-    priority: number;
-    dueDate?: number;
-    completed?: boolean;
-    flagged?: boolean;
+@Entity()
+export class Task extends BaseModel {
+  @Column({ type: 'boolean' })
+  public completed!: boolean;
+
+  @Column({ type: 'boolean' })
+  public flagged!: boolean;
 }

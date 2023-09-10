@@ -1,19 +1,25 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import 'reflect-metadata';
 import { Inter } from 'next/font/google';
 
+import AppDataSource from '@/lib/data-source';
+
 const inter = Inter({ subsets: ['latin'] });
+
+AppDataSource.initialize();
 
 export const metadata: Metadata = {
   title: 'ToDo App',
   description: 'Simple to-do app',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
