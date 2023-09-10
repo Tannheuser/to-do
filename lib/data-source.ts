@@ -1,15 +1,16 @@
 import { DataSource } from 'typeorm'
 
+import { Env } from '@/lib/env';
 import { Task } from '@/lib/models';
 import { CreateTables1694256048074 } from '@/lib/migrations';
 
 const AppDataSource = new DataSource({
   type: 'mysql',
-  host: process.env.MYSQL_HOST,
-  port: parseInt(process.env.MYSQL_PORT || '3306', 10),
-  username: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DB,
+  host: Env.dbHost,
+  port: Env.dbPort,
+  username: Env.dbUsername,
+  password: Env.dbPassword,
+  database: Env.dbDatabase,
   synchronize: false,
   logging: false,
   entities: [Task],
