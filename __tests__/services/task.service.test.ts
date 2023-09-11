@@ -65,7 +65,6 @@ describe('Task Service', () => {
     updatedTask.id = existingTask.id;
     updatedTask.title = 'Updated Task 1';
 
-    repository.findOneBy({ id: existingTask.id }).resolves(existingTask);
     repository.save(updatedTask).resolves(updatedTask);
     const result = await taskService.updateItem(updatedTask);
     repository.received(1).save(updatedTask);
@@ -73,14 +72,26 @@ describe('Task Service', () => {
     expect(result).toBe(updatedTask);
   });
 
-  test('throws when trying to update non-existent task', async () => {
-    const updatedTask = new Task();
-    updatedTask.id = 'id';
-    updatedTask.title = 'Updated Task 1';
-    const findCriteria = { id: updatedTask.id };
+  test('completes existing task', async () => {
+    const completedTask = tasks[0];
+    completedTask.completed = true;
+    const findCriteria = { id: completedTask.id };
+
+    repository.findOneBy(findCriteria).resolves(tasks[0]);
+    repository.save(completedTask).resolves(completedTask);
+    const result = await taskService.completeTask(completedTask.id);
+    repository.received(1).findOneBy(findCriteria);
+    repository.received(1).save(completedTask);
+    expect(result).toBe(completedTask);
+  });
+
+  test('throws when trying to complete non-existent task', async () => {
+    const completedTask = tasks[0];
+    completedTask.completed = true;
+    const findCriteria = { id: completedTask.id };
 
     repository.findOneBy(findCriteria).resolves(null);
-    await expect(() => taskService.updateItem(updatedTask)).rejects.toThrowError('Item does not exist');
+    await expect(() => taskService.completeTask(completedTask.id)).rejects.toThrowError('Item does not exist');
     repository.received(1).findOneBy(findCriteria);
     repository.received(0).save(Arg.any());
   });

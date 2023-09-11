@@ -1,13 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import 'reflect-metadata';
 import { Inter } from 'next/font/google';
 
-import AppDataSource from '@/lib/data-source';
-
 const inter = Inter({ subsets: ['latin'] });
-
-AppDataSource.initialize();
 
 export const metadata: Metadata = {
   title: 'ToDo App',
@@ -23,7 +18,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="container mx-auto max-w-4xl">
+        <main className="container mx-auto max-w-4xl my-4">
           {children}
         </main>
       </body>
