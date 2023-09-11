@@ -89,4 +89,4 @@ Due to the time constraints, some choices were made to simplify the development 
 - MUI was chosen because it is a popular UI library that provides a lot of components out of the box.
 - TypeORM was chosen because it is a popular ORM that supports TypeScript out of the box and allows to use both Data Mapper and Active Record patterns.
 - Tailwind CSS was chosen because it allows to quickly build a responsive UI without writing custom CSS.
-- Repository pattern was chosen because it allows to separate the business logic from the data access logic and makes the code more testable. It also allows to easily switch between different ORMs or other data providers.
+- Repository pattern was chosen because it allows to separate the business logic from the data access logic and makes the code more testable. It also allows to easily switch between different ORMs or other data providers using Dependency Injection and IoC pattern.
