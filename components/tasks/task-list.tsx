@@ -16,7 +16,7 @@ export default function TasksList(props: ActionListProps<Task>) {
               onDelete={onDelete}
               onFlag={onFlag}
               onComplete={onComplete} />)
-          : <h2 className="text-xl font-bold mb-2">Start adding some tasks today!</h2>
+          : <h3 className="font-bold mb-2 mx-2 lg:mx-0">Start adding some tasks today!</h3>
       }
     </>
   );

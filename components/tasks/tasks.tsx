@@ -29,7 +29,7 @@ export function Tasks() {
   return (
     <>
       <div className="flex flex-col">
-        <h1 className="text-2xl font-bold my-2">My Tasks</h1>
+        <h1 className="text-2xl font-bold my-2 mx-2 lg:mx-0">My Tasks</h1>
         <Divider />
         <NewTask onCreate={getTasks} />
         {

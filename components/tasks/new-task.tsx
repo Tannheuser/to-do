@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import Add from '@mui/icons-material/Add';
 import Button from '@mui/joy/Button';
 import Input from '@mui/joy/Input';
@@ -9,7 +9,7 @@ import { useHttp } from '@/hooks';
 import { Env } from '@/lib/env';
 import { Task } from '@/lib/models';
 import { getAuthHeaders } from '@/lib/utils';
-import { CreateActionProps, DetailsComponentProps } from '@/props';
+import { CreateActionProps } from '@/props';
 
 export default function NewTask(props: CreateActionProps) {
   const [taskTitle, setTaskTitle] = useState<string>('');
@@ -24,9 +24,19 @@ export default function NewTask(props: CreateActionProps) {
     onCreate();
   }
 
+  const handleKeyDown = async (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      await createTask();
+    }
+  }
+
   return (
-    <div className="flex my-4">
-      <Input className="mr-4 flex-1" value={taskTitle} onChange={(e) => setTaskTitle(e.currentTarget.value)} />
+    <div className="flex my-4 mx-2 lg:mx-0">
+      <Input
+        className="mr-4 flex-1"
+        value={taskTitle}
+        onChange={(e) => setTaskTitle(e.currentTarget.value)}
+        onKeyDown={handleKeyDown} />
       <Button variant='plain' startDecorator={<Add />} onClick={createTask} loading={loading}>Add Task</Button>
     </div>
   )
