@@ -16,15 +16,20 @@ export function Tasks() {
 
   const getTasks = async () => {
     await sendRequest({ headers });
-  }
+  };
 
   useEffect(() => {
     getTasks();
   }, [])
 
-  if (error) {
-    alert(error);
-  }
+  useEffect(() => {
+    if (error) {
+      const timeout = setTimeout(function () {
+        getTasks();
+      }, 5000);
+      clearTimeout(timeout);
+    }
+  }, [error]);
 
   return (
     <>
@@ -35,6 +40,7 @@ export function Tasks() {
         {
           data && <TasksList items={data} onDelete={getTasks} onFlag={getTasks} onComplete={getTasks}  />
         }
+        { error && <p className="text-red-500 text-center">Something went wrong possible due to a cold start. <br /> Will try to resolve it in a few seconds.</p> }
       </div>
 
     </>
