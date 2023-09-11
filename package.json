@@ -16,7 +16,6 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/joy": "latest",
-    "dayjs": "^1.11.9",
     "mysql2": "3.6.0",
     "next": "13.4.19",
     "postcss": "8.4.28",

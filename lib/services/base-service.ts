@@ -28,12 +28,6 @@ export class BaseService<T extends BaseModel> {
   }
 
   async updateItem(item: T): Promise<T> {
-    const existingItem = await this.getItemById(item.id);
-
-    if (!existingItem) {
-      throw new Error('Item does not exist');
-    }
-
     return await this.repository.save(item);
   }
 }

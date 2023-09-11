@@ -1,26 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@keyframes outAnimation {
-    20% {
-        transform: scale(0.8);
-        opacity: 0.8;
-    }
-    40% {
-        transform: scale(0.6);
-        opacity: 0.6;
-    }
-    60% {
-        transform: scale(0.4);
-        opacity: 0.4;
-    }
-    80% {
-        transform: scale(0.2);
-        opacity: 0.2;
-    }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
